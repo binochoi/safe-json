@@ -1,0 +1,69 @@
+{
+  "name": "safe-to-json",
+  "version": "0.0.1",
+  "description": "Safely serialize any value to plain JSON: handles circular references, serializes Error (name, message, stack, cause), truncates long strings and large arrays. Zero dependencies, works in Cloudflare Workers, browsers and Node.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/binochoi/safe-to-json.git"
+  },
+  "homepage": "https://github.com/binochoi/safe-to-json#readme",
+  "bugs": {
+    "url": "https://github.com/binochoi/safe-to-json/issues"
+  },
+  "keywords": [
+    "safe-to-json",
+    "json",
+    "safe-stringify",
+    "json-stringify-safe",
+    "stringify",
+    "serialize",
+    "serializer",
+    "circular",
+    "circular-reference",
+    "serialize-error",
+    "error-to-json",
+    "error-serializer",
+    "error-cause",
+    "truncate",
+    "max-depth",
+    "logging",
+    "structured-logging",
+    "telemetry",
+    "observability",
+    "error-reporting",
+    "cloudflare-workers",
+    "workerd",
+    "edge",
+    "browser",
+    "node",
+    "typescript",
+    "esm",
+    "zero-dependency"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "prepare": "obuild --stub",
+    "build:dist": "obuild",
+    "release": "pnpm build:dist && pnpm publish --ignore-scripts",
+    "clean": "rm -rf dist node_modules .turbo",
+    "lint": "oxlint ./src && tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "obuild": "^0.4.38",
+    "oxlint": "^1.67.0",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
+  }
+}
